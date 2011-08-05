@@ -1,0 +1,5 @@
+category: KDE
+sdesc: "Qt MathML rendering library (sources)"
+ldesc: "QtMmlWidget implements the Presentation Markup subset of the 
+MathML 2.0 specification. It relies on the presence of a unicode font 
+for rendering mathematical symbols."

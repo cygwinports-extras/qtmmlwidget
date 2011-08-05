@@ -1,0 +1,7 @@
+category: KDE
+requires: libgcc1 libQtCore4 libQtGui4 libQtXml4 libstdc++6
+external-source: qtmmlwidget
+sdesc: "Qt MathML rendering library (runtime)"
+ldesc: "QtMmlWidget implements the Presentation Markup subset of the 
+MathML 2.0 specification. It relies on the presence of a unicode font 
+for rendering mathematical symbols."

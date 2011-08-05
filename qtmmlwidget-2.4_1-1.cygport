@@ -1,0 +1,28 @@
+inherit qt4-qmake
+
+DESCRIPTION="Qt MathML rendering library"
+HOMEPAGE="http://qt.nokia.com/products/qt-addons/solutions-archive"
+SRC_URI="mirror://qt/qt/solutions/lgpl/${P}-opensource.tar.gz"
+SRC_DIR="${P}-opensource"
+
+PKG_NAMES="libQtMmlWidget2.4_1 libQtMmlWidget-devel"
+libQtMmlWidget2_4_1_CONTENTS="usr/bin/*-2.4-1.dll"
+libQtMmlWidget_devel_CONTENTS="usr/include/ usr/lib/ usr/share/doc/"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	# common.pri looks for this setting specifically in config.pri
+	echo "SOLUTIONS_LIBRARY = yes" > config.pri
+	cygqmake4
+	cygmake
+}
+
+src_install() {
+	cd ${B}
+	dobin lib/*.dll
+	dolib lib/*.a
+	insinto ${QT4_INCLUDEDIR}/QtMmlWidget
+	doins src/QtMml* src/*.h
+}
+DOCS="LGPL_EXCEPTION.txt LICENSE.* README.TXT"
